@@ -23,3 +23,49 @@
     background-color: rgb(15, 2, 71);
     border: 1px solid black;
 }
+
+#dafa-406{
+    display: flex;
+    flex-direction: row;
+   align-items: center;
+    margin-top: 1%;
+
+}
+
+#input input{
+    width: 406px;
+    height: 60px;
+    font-size: 30px;
+}
+#algorithm select{
+    width: 260px;
+    height: 30px;
+    font-size: 20px;
+}
+
+#algorithm{
+    margin-right: 6px;
+    margin-left: 1px;
+    
+}
+
+#calculate-button{
+    display: flex;
+    width: 40px;
+    height: 60px;
+    margin-left:6px ;
+
+}
+
+
+
+#calculate-button button{
+    width: 40px;
+    background-color: white;
+    border: 1px solid purple;
+}
+
+#calculate-button button:hover{
+    cursor: pointer;
+}
+
