@@ -1,25 +1,128 @@
 let canvas = document.getElementById("display");
-console.log(canvas)
+let argumentsInput = document.getElementById("text");
+let Ccode = document.getElementById("Ccode");
+let Algorithms = document.getElementsByClassName("dropDown-list");
+let ActiveAlgo = "";
+
+argumentsInput.placeholder = "Select The Algorithm";
+
+let expression = "Here goes the expression ";
+let result ="Loading... Result";
+//Activators
+
+function activeAlgos(){
+    let algos = document.getElementById("algos").value;
+    ActiveAlgo= algos;
+    if(ActiveAlgo=="Sinx"){
+        argumentsInput.placeholder = "Enter comma separated (angle,term) value without brackets";
+
+    }else if(ActiveAlgo=="Cosx"){
+        argumentsInput.placeholder = "Enter comma separated (angle,term) value without brackets";
+    }
+    else if(ActiveAlgo=="Polynomial Multiplication"){
+        argumentsInput.placeholder = "Enter coefficient of eqn Anx^n+An-1x^n-1+An-2x^n-2+....+A0";
+    }else if(ActiveAlgo=="Polynomial Division"){
+        argumentsInput.placeholder = "Enter coefficient of eqn Anx^n+An-1x^n-1+An-2x^n-2+....+A0";
+    }
+    else if(ActiveAlgo=="Algorithms"){
+        argumentsInput.placeholder = "Select The Algorithm";
+    }
+   
+}
+
 
 const ctx = canvas.getContext("2d");
 
-//adding console text
+let input = "";
+let Arguments=[];
+let number="" ;
 
-function text(text,color,x,y,font="orbitron",fontSize = "10px"){
+function calculate(){
+    if(ActiveAlgo=="Sinx"){
+    
+    const sinf = new sinx(Arguments[0],Arguments[1]);
+    Ccode.innerHTML = sinf.Ccode();
+    result = sinf.func();
+    expression = sinf.expressios();
+
+    }
+
+    if(ActiveAlgo=="Cosx"){
+        const cosf = new Cosx(Arguments[0],Arguments[1]);
+        Ccode.innerHTML=cosf.Ccode();
+        result = cosf.func();
+        expression = cosf.expressios();
+
+    }
+}
+
+
+
+
+
+
+//adding console text
+function text(text,color,x,y,fontSize = "10px",font="orbitron"){
     ctx.beginPath();
     ctx.fillStyle = color;
     ctx.font = `${fontSize} ${font}`;
-    ctx.textAlign = 'center'
+
     ctx.textBaseline = 'middle'
     ctx.fillText(text , x, y);
 }
 
+// Removing characters other than comma and digits
+argumentsInput.addEventListener('input', function (event) {
+    const currentValue = event.target.value;
+    const sanitizedValue = currentValue.replace(/[^,.\d]/g, ''); 
+    event.target.value = sanitizedValue;
+});
+
+//getting input
+argumentsInput.addEventListener("input",()=>{
+    input = argumentsInput.value;
+})
+
+argumentsInput.addEventListener("change",()=>{
+    for(let i=0;i<input.length;i++){
+        if(input[i]!=",")
+        {
+            number = number + input[i];   
+        }
+        else if(input[i]==",")
+        {   
+            Arguments.push(parseFloat(number));
+            number="";
+        }
+        if(i==input.length-1){
+            Arguments.push(parseFloat(number));
+            number="";
+        }
+    }
+    console.log(Arguments);
+})
+
+
+
+argumentsInput.addEventListener("focus",()=>{
+    
+    Arguments = [];
+    argumentsInput.value="";
+    input = "";
+})
+
+
+
+//canvas animation
 function animate(){
     ctx.clearRect(0,0,canvas.clientWidth,canvas.height)
-    text("Display","green",16,10);
+    text("console😊","green",4,10);
+    text(expression,"green",4,40,"10px");
+    text(`result => ${result}`,"green",4,80);
     requestAnimationFrame(animate);
 }
 animate();
+
 
 
 

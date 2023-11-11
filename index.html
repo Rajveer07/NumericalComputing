@@ -12,20 +12,22 @@
     <canvas id="display"></canvas>
     <div id="code">
         <p style="color: green;">code</p>
+        <div id="Ccode"></div>
     </div>
     </div>
     <div id="dafa-406">
-        <div id="algorithm"><select>
-            <option><button class="dropDown-list">Algorithms</button></option>
-            <option><button class="dropDown-list">Sinx</button></option>
+        <div id="algorithm"><select id="algos" onchange="activeAlgos()">
+            <option><button  class="dropDown-list">Algorithms</button></option>
+            <option ><button  class="dropDown-list">Sinx</button></option>
             <option><button class="dropDown-list">Cosx</button></option>
-            <option><button class="dropDown-list">Polynomial Multiplication</button></option>
-            <option><button class="dropDown-list">Polynomial Division</button></option>
+            <option><button  class="dropDown-list">Polynomial Multiplication</button></option>
+            <option><button  class="dropDown-list">Polynomial Division</button></option>
         </select></div>
-        <div id="input"><input type="text"></div>
-        <div id="calculate-button"><button><i class="fa fa-calculator" style="font-size:24px"></i></button></div>
+        <div id="input"><input value="" id="text" type="text"></div>
+        <div id="calculate-button"><button onclick="calculate()"><i class="fa fa-calculator" style="font-size:24px"></i></button></div>
     </div>
-
+    <script src="code.js"></script>
     <script src="script.js"></script>
+    
 </body>
 </html>
