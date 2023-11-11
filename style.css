@@ -69,3 +69,22 @@
     cursor: pointer;
 }
 
+@media only screen and (max-width: 600px) {
+   #upper-container{
+    flex-direction: column;
+
+   }
+   #display{
+    width: 100%;
+
+   }
+   #Ccode{
+    width: 100%;
+   }
+   #dafa-406{
+    flex-direction: column; 
+}
+    #input input{
+        width: 100%;
+    }
+  }
