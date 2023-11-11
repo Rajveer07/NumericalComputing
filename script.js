@@ -119,6 +119,7 @@ function animate(){
     text("console😊","green",4,10);
     text(expression,"green",4,40,"10px");
     text(`result => ${result}`,"green",4,80);
+    text(`Made with 💚 By Rajveer`,"green",50,140,"8px");
     requestAnimationFrame(animate);
 }
 animate();
