@@ -84,7 +84,17 @@
    #dafa-406{
     flex-direction: column; 
 }
+
+    #input{
+        margin-top: 6px;
+        width: 100%;
+    }
+
     #input input{
         width: 100%;
+    }
+
+    #calculate-button{
+        margin-top:6px;
     }
   }
