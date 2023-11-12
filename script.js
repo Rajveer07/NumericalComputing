@@ -22,7 +22,7 @@ function activeAlgos(){
     else if(ActiveAlgo=="Polynomial Value"){
         argumentsInput.placeholder = "Put comma separated coefficient of eqn Anx^n+An-1x^n-1+An-2x^n-2+....+A0 last term will be value of variable x";
     }else if(ActiveAlgo=="Polynomial Division"){
-        argumentsInput.placeholder = "Enter coefficient of eqn Anx^n+An-1x^n-1+An-2x^n-2+....+A0";
+        argumentsInput.placeholder = "Put comma separated coefficient of eqn Anx^n+An-1x^n-1+An-2x^n-2+....+A0 last term will divisor ";
     }
     else if(ActiveAlgo=="Algorithms"){
         argumentsInput.placeholder = "Select The Algorithm";
