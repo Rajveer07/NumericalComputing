@@ -170,3 +170,75 @@ int main() {
 
 
 }
+
+class polyDiv{
+    constructor(arr){
+        this.arr = arr;
+        this.code= 
+        `
+<pre style="color:green">
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+	double arr[6] = {1,2,3,4,5,6};
+	double x =1;
+	double quotioent[5];
+	double q=0;
+	double remain;
+	for(int i=0;i&lt;=5;i++){
+	    if(i&lt5){
+	    q = q*x + arr[i];
+	    quotioent[i]=q;
+	    }else{
+	        q = q*x + arr[i];
+	        remain = q;
+	    }
+	    
+	}
+	for(int i=0;i&lt;5;i++){
+	    cout&lt;&lt;quotioent[i]&lt;&lt;" ";
+	}
+	    cout&lt;&lt;"remainder"&lt;&lt;"\n"&lt;&lt;remain;
+	
+	return 0;
+}
+</pre>
+
+        `
+    }
+
+    func(){
+        let x = this.arr[this.arr.length-1];
+        let quotioent = [];
+        let term=0;
+        let remainder=0;
+        for(let i =0;i<=this.arr.length-2;i++){
+            if(i<this.arr.length-2){
+            term = term*x + this.arr[i];
+            quotioent[i]=term;
+            }else{
+                term = term*x + this.arr[i];
+                remainder = term;
+            }
+        }
+
+        return {quotioent,remainder};
+
+
+    }
+
+    expressios(){
+        let expression= "";
+        for(let i=0;i<this.arr.length-1;i++){
+            expression += `${this.arr[i]}x^${this.arr.length-2-i}+`;
+
+        }
+        return expression;
+
+    }
+
+    Ccode(){
+        return this.code;
+    }
+}

@@ -61,7 +61,16 @@ function calculate(){
         result = polyValue.func();
         expression = polyValue.expressios();
     }
+
+    if(ActiveAlgo=="Polynomial Division"){
+        const polyDivision = new polyDiv(Arguments);
+        Ccode.innerHTML = polyDivision.Ccode();
+        result = `Quotioent ${polyDivision.func().quotioent} | Remainder ${polyDivision.func().remainder}`;
+        expression = polyDivision.expressios();
+
+    }
 }
+    
 
 
 
