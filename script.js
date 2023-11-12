@@ -19,8 +19,8 @@ function activeAlgos(){
     }else if(ActiveAlgo=="Cosx"){
         argumentsInput.placeholder = "Enter comma separated (angle,term) value without brackets";
     }
-    else if(ActiveAlgo=="Polynomial Multiplication"){
-        argumentsInput.placeholder = "Enter coefficient of eqn Anx^n+An-1x^n-1+An-2x^n-2+....+A0";
+    else if(ActiveAlgo=="Polynomial Value"){
+        argumentsInput.placeholder = "Put comma separated coefficient of eqn Anx^n+An-1x^n-1+An-2x^n-2+....+A0 last term will be value of variable x";
     }else if(ActiveAlgo=="Polynomial Division"){
         argumentsInput.placeholder = "Enter coefficient of eqn Anx^n+An-1x^n-1+An-2x^n-2+....+A0";
     }
@@ -53,6 +53,13 @@ function calculate(){
         result = cosf.func();
         expression = cosf.expressios();
 
+    }
+
+    if(ActiveAlgo=="Polynomial Value"){
+        const polyValue = new PolynomialValue(Arguments,Arguments[Arguments.length-1]);
+        Ccode.innerHTML = polyValue.Ccode();
+        result = polyValue.func();
+        expression = polyValue.expressios();
     }
 }
 
@@ -114,15 +121,16 @@ argumentsInput.addEventListener("focus",()=>{
 
 
 //canvas animation
+animate();
 function animate(){
-    ctx.clearRect(0,0,canvas.clientWidth,canvas.height)
+    ctx.clearRect(0,0,canvas.width,canvas.height)
     text("console😊","green",4,10);
     text(expression,"green",4,40,"10px");
     text(`result => ${result}`,"green",4,80);
     text(`Made with 💚 By Rajveer`,"green",50,140,"8px");
     requestAnimationFrame(animate);
 }
-animate();
+
 
 
 

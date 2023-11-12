@@ -104,3 +104,69 @@ int main() {
         return this.code;
     }
 }
+
+class PolynomialValue{
+    constructor(arr){
+        this.arr =arr;
+        
+        this.code = 
+        `
+<pre style="color:green">
+#include &lt;stdio.h&gt;
+
+int main() {
+    int n;
+	double x;
+	double arr[5] ;
+	printf("Enter the number of terms including the term having 0 coeff\n");
+	scanf("%d",&n);
+	int i ;
+	printf("Enter the coefficients from higher degree to lower\n");
+	double coeff;
+	for(i=0;i&lt;n;i++){
+	    scanf("%lf",&coeff);
+	    arr[i] = coeff;
+	}
+	printf("Enter the value of variable x\n");
+	scanf("%lf",&x);
+	
+	double sum = arr[0];
+	for(i=1;i&lt;n;i++){
+	    sum = sum*x + arr[i];
+	}
+	
+	printf("%lf",sum);
+	
+	
+	
+	return 0;
+}
+</pre>
+        `;
+    }
+
+    func(){
+        let  arr =  this.arr;
+        let sum = arr[0];
+        let x = arr[arr.length-1];
+        for(let i= 1 ; i<arr.length-1;i++){
+            sum = sum*x + arr[i];
+        }
+        return sum;
+    }
+
+    expressios(){
+        let expression = "";
+        
+        for(let i =0 ; i<this.arr.length-1;i++){
+            expression += `${this.arr[i]}*${this.arr[this.arr.length-1]}^${this.arr.length-2-i}+`
+        }
+        return expression;
+    }
+
+    Ccode(){
+        return this.code;
+    }
+
+
+}
