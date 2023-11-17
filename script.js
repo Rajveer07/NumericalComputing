@@ -69,6 +69,13 @@ function calculate(){
         expression = polyDivision.expressios();
 
     }
+
+    if(ActiveAlgo == "ln(1+x)"){
+        const lnx1 = new lnx(Arguments);
+        Ccode.innerHTML = lnx1.Ccode();
+        result = lnx1.func();
+        expression = lnx1.expressios();
+    }
 }
     
 
@@ -87,10 +94,10 @@ function text(text,color,x,y,fontSize = "10px",font="orbitron"){
     ctx.fillText(text , x, y);
 }
 
-// Removing characters other than comma and digits
+// Removing characters other than comma,minus and digits
 argumentsInput.addEventListener('input', function (event) {
     const currentValue = event.target.value;
-    const sanitizedValue = currentValue.replace(/[^,.\d]/g, ''); 
+    const sanitizedValue = currentValue.replace(/[^,.-\d]/g, ''); 
     event.target.value = sanitizedValue;
 });
 
@@ -132,6 +139,7 @@ argumentsInput.addEventListener("focus",()=>{
 //canvas animation
 animate();
 function animate(){
+    ctx.imageSmoothingEnabled = false;
     ctx.clearRect(0,0,canvas.width,canvas.height)
     text("console😊","green",4,10);
     text(expression,"green",4,40,"10px");

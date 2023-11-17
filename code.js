@@ -242,3 +242,64 @@ int main() {
         return this.code;
     }
 }
+
+class lnx{
+    constructor(arr){
+        this.arr = arr;
+        this.code =
+`
+<pre style="color:green">
+#include &lt;iostream&gt;
+#include &lt;cmath&gt;
+using namespace std;
+
+int main() {
+    int n=2;
+    int i;
+    double x=1.0;
+    double sum=x;
+    double term=x;
+    
+    for(i=1;i&lt;n;i++){
+        term = -x*term*i/(i+1);
+        sum = sum + term;
+       
+        
+    }
+    
+    cout&lt;&lt;sum;
+    
+	return 0;
+}
+</pre>
+`        
+    }
+
+    func(){
+        let x = this.arr[0];
+        let n = parseInt(this.arr[1]);
+        let sum = x;
+        let term =x;
+        for(let i =1 ; i<n;i++){
+            term = -x*term*i/(i+1);
+            sum += term;
+
+        }
+
+        return sum;
+
+    }
+
+    expressios(){
+        let expression ="";
+        let n = parseInt(this.arr[1]);
+        for(let i=1;i<=n;i++){
+            expression += `${Math.pow(-1,i+1)*this.arr[0]}^${i}/${i}+`
+        }
+        return expression;
+    }
+
+    Ccode(){
+        return this.code;
+    }
+}
